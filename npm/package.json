@@ -11,6 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.5.1",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "sass": "^1.32.7"
   }
 }
