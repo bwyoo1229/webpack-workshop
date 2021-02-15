@@ -18,7 +18,7 @@ npm install [package]
 npm i [package]
 ```
 
-- npm init시 package.json 생성된다.
+npm init시 package.json 생성된다.
 
 ### Uninstall
 ```
@@ -55,10 +55,10 @@ npm i [package] -D
 >  - 하지만 간혹 version range안의 버전에 오류가 있을 경우 package-lock.json 파일의 정확한 의존성 정보를 통해 정확한 버전을 이용할 수 있다.
 
 ### Deps vs Dev Deps
-Deps: 어플리케이션 로직과 직접적인 연관이 있음. (뷰에 직접적인 연관)
+**Deps:** 어플리케이션 로직과 직접적인 연관이 있음. (뷰에 직접적인 연관)
 ex) react, vue, angular, chart
 
-Dev Deps: 개발에 보조적으로 필요한 패키지
+**Dev Deps:** 개발에 보조적으로 필요한 패키지
 ex) babel, webpack, sass
 
 ## Webpack
