@@ -62,3 +62,61 @@ ex) react, vue, angular, chart
 ex) babel, webpack, sass
 
 ## Webpack
+
+### Install Webpack
+```
+npm i webpack webpack-cli -D
+```
+- webpack-cli 는 터미널에서 웹팩 명령어 조작을 쉽게 도와주는 라이브러리이다.
+
+### Webpack의 등장배경
+1. 파일 단위의 자바스크립트 모듈 관리의 중요성
+2. 웹 개발 작업 자동화 도구 (Web Task manager)
+3. 웹 어플리케이션의 빠른 로딩 속도와 높은 성능
+
+### Webpack이 해결하려는 문제
+1. 자바스크립트 변수 유효 범위 문제
+   - ES6 모듈 문법과 웹팩의 모듈 번들링으로 해결
+2. 브라우저별 HTTP 요청 숫자의 제약
+   - TCP 스펙에 따라 브라우저에서 보낼 수 있는 HTTP 요청의 숫자는 정해져 있다.
+  
+  | 브라우저 | HTTP 요청 가능 숫자 |
+  | :---: | :---: |
+  | 익스플로러 10, 11 | 8, 13 |
+  | 크롬 | 6 |
+  | 사파리 | 6 |
+  | 파이어폭스 | 6 |
+  | android / ios | 6 |
+
+3. Dynamic loading, Lazy loading 미지원
+   - 웹팩의 코드 스플리팅으로 해결
+
+### Webpack Build
+```
+// package.json
+
+{
+  .
+  .
+  .
+  "scripts": {
+    "build": "webpack"
+  }
+}
+```
+
+### Webpack Config
+```
+//webpack.config.js
+
+module.exports = {
+  mode='none',
+  entry='./src/index.js'
+  output='./dist/output.js',
+  .
+  .
+  .
+}
+```
+- CommonJS 모듈 문법 활용
+  
