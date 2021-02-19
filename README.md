@@ -121,7 +121,6 @@ module.exports = {
 - CommonJS 모듈 문법 활용
   
 ### Webpack Source-map
-
 - webpack의 빌드 모드를 프로덕션 모드로 빌드를 하게 되면 코드가 난독화된다. (난독화 되지 않더라도 모든 모듈화한 코드가 합쳐지게 된다)
 - 이때 브라우저의 개발자 도구에서 빌드 후 코드를 보여주게 되면 디버깅 생산성이 매우 낮아질 것이다.
 - 이를 해결하기 위해 webpack에는 source-map이라는 기능이 있다.
@@ -138,3 +137,75 @@ module.exports = {
   devtool: 'source-map'
 }
 ```
+
+### 웹팩의 주요 4가지 속성
+1. entry
+2. output
+3. loader
+4. plugin
+
+#### Entry
+`entry` 속성은 웹팩에서 웹 자원을 변환하기 위한 최초 진입점이다.
+```
+// webpack.config.js
+
+module.exports = {
+  entry: './src/index.js'
+}
+```
+- Entry 포인트는 1개가 될 수도 있지만 여러개가 될 수도 있다.
+
+#### Output
+웹팩 파일을 돌리고 난 결과물의 경로이다.
+```
+// webpack.config.js
+var path = require('path');
+
+module.exports = {
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './dist)
+  }
+}
+```
+filename에 `name`, `id`, `hash`, `chunkhash`들의 옵션을 줄 수 있다.
+
+#### Loader
+웹팩이 자바스크립트가 아닌 그외의 웹 자원들을 변환할 수 있게 하는 속성이다.
+```
+// webpack.config.js
+
+module.exports = {
+  module: {
+    rules: []
+  }
+}
+```
+로더는 기본적으로 오른쪽에서 왼쪽 순으로 적용된다.
+
+```
+// loader의 순서 적용 예시
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.scss/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  }
+}
+```
+
+#### plugin
+웹팩의 기본적인 동작에 추가적인 기능을 제공하는 속성
+주로 플러그인은 해당 결과물의 형태를 바꾸는 역할을 한다.
+```
+// webpack.config.js
+
+module.exports = {
+  plugins: []
+}
+```
+플러그인의 배열에는 생성자 함수로 생성한 객체 인스턴스만 추가될 수 있다.
